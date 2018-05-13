@@ -27,7 +27,7 @@ RIDGEWALL = 0.5;
 RIDGEH = 5;
 
 // film slot width
-SLOT = 2;
+SLOT = 1.25;
 
 // gap between the spools
 SPOOLGAP = 18;
