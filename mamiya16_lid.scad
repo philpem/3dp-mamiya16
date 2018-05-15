@@ -45,7 +45,7 @@ module spoolinner()
 // subtracted from spoolinner() to form the inside of the lid
 module lidcavity()
 {
-	DX = D - (RIDGEWALL*1.0);
+	DX = D - (RIDGEWALL*2);
 	
 	difference() {
 		union() {
