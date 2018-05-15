@@ -6,7 +6,7 @@ SPOOLH = 16;
 SPOOLDIA = 14;
 
 // height of the screw above the top of the cartridge
-SCREWH = 2;
+SCREWH = 3;
 
 // diameter of the takeup feed screw
 SCREWDIA = 7.5;

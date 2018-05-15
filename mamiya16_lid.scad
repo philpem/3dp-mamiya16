@@ -9,8 +9,8 @@ D=21.5;
 // wall thickness
 WALL = 1.5;
 
-// ridge thinning thickness
-RIDGEWALL = 0.5;
+// ridge thickness, needs to be the same as the base
+RIDGEWALL = 0.75;
 // height of the ridge at the top of the cartridge
 RIDGEH = 5;
 
@@ -45,7 +45,7 @@ module spoolinner()
 // subtracted from spoolinner() to form the inside of the lid
 module lidcavity()
 {
-	DX = D - ((WALL-RIDGEWALL)*1.2);
+	DX = D - (RIDGEWALL*1.0);
 	
 	difference() {
 		union() {
@@ -76,7 +76,8 @@ difference() {
 		spool();
 		cylinder(RHOLE_RIDGE_HGT, d=RHOLE_RIDGE_DIA);
 	}
-	translate([0,0,-FUDGE]) cylinder(H+(2*FUDGE), d=RHOLE_DIA);		// cylindrical body
+	translate([0,0,-FUDGE]) cylinder(H+(2*FUDGE), d=RHOLE_DIA);		// screw hole
+	translate([0,0,-FUDGE]) cylinder((WALL/2)+(2*FUDGE), d=(RHOLE_DIA*1.75));		// screw hole
 }
 
 

@@ -21,8 +21,8 @@ D=21.5;
 // wall thickness
 WALL = 1.5;
 
-// ridge thinning thickness
-RIDGEWALL = 0.5;
+// cap ridge thickness, needs to be the same as the cap
+RIDGEWALL = 0.75;
 // height of the ridge at the top of the cartridge
 RIDGEH = 5;
 
@@ -73,16 +73,16 @@ module spoolinner(rightspool)
 // subtracted from spoolinner() to form the ridge
 module spoolridge(rightspool)
 {
-	DX = (D + WALL) + RIDGEWALL;
+	DX = (D - (RIDGEWALL*2));
 	
 	difference() {
 		union() {
-			cylinder(RIDGEH, d=DX);		// cylindrical body
-			cube([DX/2, DX/2, RIDGEH]);	// square section
+			cylinder(RIDGEH, d=D+FUDGE);		// cylindrical body
+			cube([(D+FUDGE)/2, (D+FUDGE)/2, RIDGEH]);	// square section
 		}
 		union() {
-			translate([0,0,-FUDGE]) cylinder(RIDGEH+(2*FUDGE), d=DX-(WALL*2));	// inside of cylinder
-			translate([-WALL-FUDGE, -WALL-FUDGE, -FUDGE]) cube([DX/2, DX/2, RIDGEH+(FUDGE*2)]);	// square section
+			translate([0,0,-FUDGE]) cylinder(RIDGEH+(2*FUDGE), d=DX);	// inside of cylinder
+			translate([-FUDGE, -FUDGE, -FUDGE]) cube([DX/2, DX/2, RIDGEH+(FUDGE*2)]);	// square section
 		}
 	}
 }
