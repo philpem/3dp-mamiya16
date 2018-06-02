@@ -82,7 +82,7 @@ module spoolridge(rightspool)
 		}
 		union() {
 			translate([0,0,-FUDGE]) cylinder(RIDGEH+(2*FUDGE), d=DX);	// inside of cylinder
-			translate([-FUDGE, -FUDGE, -FUDGE]) cube([DX/2, DX/2, RIDGEH+(FUDGE*2)]);	// square section
+			translate([-FUDGE, -FUDGE, -FUDGE]) cube([(DX/2)+FUDGE, (DX/2)+FUDGE, RIDGEH+(FUDGE*2)]);	// square section
 		}
 	}
 }
