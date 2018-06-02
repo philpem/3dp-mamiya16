@@ -9,8 +9,10 @@ D=21.5;
 // wall thickness
 WALL = 1.5;
 
+SLIDINGFIT = 0.1;
+
 // ridge thickness, needs to be the same as the base
-RIDGEWALL = 0.75;
+RIDGEWALL = 0.75 - SLIDINGFIT;
 // height of the ridge at the top of the cartridge
 RIDGEH = 5;
 
