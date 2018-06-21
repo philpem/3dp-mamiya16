@@ -50,7 +50,8 @@ union() {
 	difference() {
 		cylinder(h=SPOOLH, d=SPOOLDIA);		// main spool body
 		translate([0,0,SPOOLH-RECESSDEP+FUDGE]) cylinder(h=RECESSDEP, d=RECESSDIA);		// recess around screwhead
-		translate([0,0,-FUDGE]) cylinder(h=HUBDEP, d=HUBDIA);
+		translate([0,0,-FUDGE]) cylinder(h=HUBDEP, d=HUBDIA);   // inner core
+        translate([0,0,HUBDEP-FUDGE]) resize([HUBDIA,HUBDIA,2]) sphere(1.0);    // rounded section
 	}
 
 	difference() {
