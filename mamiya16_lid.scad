@@ -14,7 +14,7 @@ SLIDINGFIT = 0.1;
 // ridge thickness, needs to be the same as the base
 RIDGEWALL = 0.75 - SLIDINGFIT;
 // height of the ridge at the top of the cartridge
-RIDGEH = 5;
+RIDGEH = 5.5;
 
 // film slot width
 SLOT = 1.25;
@@ -69,7 +69,7 @@ module spool()
 
 // left lid
 
-RHOLE_RIDGE_DIA = 10;		// locating ridge for the film reel
+RHOLE_RIDGE_DIA = 9.25;		// locating ridge for the film reel
 RHOLE_RIDGE_HGT = 3.5;		// locating ridge height
 RHOLE_DIA = 8.5;			// hole dia for takeup spool screw
 
@@ -79,7 +79,9 @@ difference() {
 		cylinder(RHOLE_RIDGE_HGT, d=RHOLE_RIDGE_DIA);
 	}
 	translate([0,0,-FUDGE]) cylinder(H+(2*FUDGE), d=RHOLE_DIA);		// screw hole
-	translate([0,0,-FUDGE]) cylinder((WALL/2)+(2*FUDGE), d=(RHOLE_DIA*1.75));		// screw hole
+	//translate([0,0,-FUDGE]) cylinder(((H-RIDGEH)/2)+(2*FUDGE), d=(RHOLE_DIA*1.75));		// screw hole counterbore
+    
+    translate([0,0,-FUDGE]) resize([(RHOLE_DIA*1.75), (RHOLE_DIA*1.75), ((H-RIDGEH)*2)+(2*FUDGE)]) sphere(r=5.0);   // screw hole counerbore, rounded
 }
 
 

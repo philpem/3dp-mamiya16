@@ -36,7 +36,7 @@ SPOOLGAP = 18;
 
 
 // reel mounting pin (hub) diameter
-HUBPINDIA = 11;
+HUBPINDIA = 10;
 
 // reel mounting pin height
 HUBPINHGT = 5;
