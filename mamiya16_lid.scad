@@ -51,8 +51,8 @@ module lidcavity()
 	
 	difference() {
 		union() {
-			cylinder(RIDGEH, d=DX);		// cylindrical body
-			cube([DX/2, DX/2, RIDGEH]);	// square section
+			cylinder(RIDGEH+FUDGE, d=DX);		// cylindrical body
+			cube([DX/2, DX/2, RIDGEH+FUDGE]);	// square section
 		}
 	}
 }
